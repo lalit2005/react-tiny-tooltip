@@ -1,6 +1,6 @@
 {
   "name": "react-tiny-tooltip",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A simple, tiny, accessible and lightweight tooltip library for React. Built with Stitches and Radix UI.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
