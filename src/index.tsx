@@ -35,7 +35,9 @@ export const Tooltip: React.FC<{
   content: string | JSX.Element;
   showArrow?: boolean;
   delay?: number;
-}> = ({ content, showArrow = true, delay = 0, ...props }) => {
+  side?: "top" | "bottom" | "left" | "right";
+  sideOffset?: number;
+}> = ({ content, showArrow = true, delay = 0, side, sideOffset, ...props }) => {
   return (
     <Box>
       <RadixTooltip.Provider delayDuration={delay}>
@@ -43,7 +45,7 @@ export const Tooltip: React.FC<{
           <RadixTooltip.Trigger asChild>
             <Box>{props.children}</Box>
           </RadixTooltip.Trigger>
-          <StyledContent>
+          <StyledContent side={side} sideOffset={sideOffset}>
             {content}
             {showArrow && <RadixTooltip.Arrow />}
           </StyledContent>
