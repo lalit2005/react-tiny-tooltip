@@ -26,7 +26,7 @@ const StyledContent = styled(RadixTooltip.Content, {
   },
   backgroundColor: "black",
   color: "white",
-  padding: "4px 7px",
+  padding: "6px 9px",
   borderRadius: "4px",
   boxShadow: "0px 0px 10px 0px rgba(161,161,161,0.6)",
 });
