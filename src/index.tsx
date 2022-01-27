@@ -5,12 +5,11 @@ import * as RadixTooltip from "@radix-ui/react-tooltip";
 export const Tooltip: React.FC<{
   content: string | JSX.Element;
   showArrow?: boolean;
-}> = ({ content, showArrow }) => {
+}> = ({ content, showArrow = true, ...props }) => {
   return (
     <RadixTooltip.Root>
-      <RadixTooltip.Trigger />
+      <RadixTooltip.Trigger>{props.children}</RadixTooltip.Trigger>
       <RadixTooltip.Content>
-        Hello
         {content}
         {showArrow && <RadixTooltip.Arrow />}
       </RadixTooltip.Content>
