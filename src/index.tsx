@@ -1,24 +1,54 @@
 import React from "react";
-// import { styled } from "@stitches/react";
+import { styled, keyframes } from "@stitches/react";
 import * as RadixTooltip from "@radix-ui/react-tooltip";
+
+const Box = styled("div", {
+  fontFamily:
+    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+});
+
+const scaleIn = keyframes({
+  from: { transform: "scale(0.9)", opacity: 0 },
+  to: { transform: "scale(1)", opacity: 1 },
+});
+
+const scaleOut = keyframes({
+  from: { transform: "scale(1)", opacity: 1 },
+  to: { transform: "scale(0.9)", opacity: 0 },
+});
+
+const StyledContent = styled(RadixTooltip.Content, {
+  '&[data-state="delayed-open"]': {
+    animation: `${scaleIn} 0.2s ease-in-out`,
+  },
+  '&[data-state="closed"]': {
+    animation: `${scaleOut} 0.2s ease-in-out`,
+  },
+  backgroundColor: "black",
+  color: "white",
+  padding: "4px 7px",
+  borderRadius: "4px",
+  boxShadow: "0px 0px 45px 6px rgba(161,161,161,0.6)",
+});
 
 export const Tooltip: React.FC<{
   content: string | JSX.Element;
   showArrow?: boolean;
-}> = ({ content, showArrow = true, ...props }) => {
+  delay?: number;
+}> = ({ content, showArrow = true, delay = 0, ...props }) => {
   return (
-    <RadixTooltip.Root>
-      <RadixTooltip.Trigger asChild>
-        <div>{props.children}</div>
-      </RadixTooltip.Trigger>
-      <RadixTooltip.Content>
-        {content}
-        {showArrow && <RadixTooltip.Arrow />}
-      </RadixTooltip.Content>
-    </RadixTooltip.Root>
+    <Box>
+      <RadixTooltip.Provider delayDuration={delay}>
+        <RadixTooltip.Root>
+          <RadixTooltip.Trigger asChild>
+            <Box>{props.children}</Box>
+          </RadixTooltip.Trigger>
+          <StyledContent>
+            {content}
+            {showArrow && <RadixTooltip.Arrow />}
+          </StyledContent>
+        </RadixTooltip.Root>
+      </RadixTooltip.Provider>
+    </Box>
   );
 };
-
-// export const Tooltip = () => {
-//   return <div>Hi</div>;
-// };
