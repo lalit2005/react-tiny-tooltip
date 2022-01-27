@@ -8,7 +8,9 @@ export const Tooltip: React.FC<{
 }> = ({ content, showArrow = true, ...props }) => {
   return (
     <RadixTooltip.Root>
-      <RadixTooltip.Trigger>{props.children}</RadixTooltip.Trigger>
+      <RadixTooltip.Trigger asChild>
+        <div>{props.children}</div>
+      </RadixTooltip.Trigger>
       <RadixTooltip.Content>
         {content}
         {showArrow && <RadixTooltip.Arrow />}
