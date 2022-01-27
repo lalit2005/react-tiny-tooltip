@@ -15,7 +15,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npm run build -- --watch",
-    "build": "tsup src/index.tsx --format cjs,esm --dts --clean",
+    "build": "tsup src/index.tsx --format cjs,esm --dts --clean --minify",
     "prepublishOnly": "npm run build"
   },
   "repository": {
