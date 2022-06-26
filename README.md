@@ -4,7 +4,7 @@
   A simple, tiny, accessible, opinionated and lightweight tooltip library for React. Built with Stitches and Radix UI. Built with @stitchesjs and @radix-ui.
 </p>
 
-<p align="center"><a href="https://hyperdocs.netlify.app/rtt">View docs for more info</a></p>
+**<p align="center"><a href="https://hyperdocs.netlify.app/rtt">View docs for more info</a></p>**
 
 ---
 
